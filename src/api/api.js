@@ -14,4 +14,5 @@ const resurseApi = resursa => {
     };
 };
 const contactsApi = resurseApi('contact');
+
 export { contactsApi };

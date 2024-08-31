@@ -1,10 +1,11 @@
 import React from 'react';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
-import styles from './ContactForm/ContactForm.module.css';
-
-
+import { Contacts } from './Contacts';
+import  LoginPage  from '../components/Pages/LoginPage/LoginPage';
+import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import RegisterPage from '../components/Pages/RegisterPage/RegisterPage';
 
 
 
@@ -12,13 +13,45 @@ import styles from './ContactForm/ContactForm.module.css';
 function App() {
 
   return (
-    <div className={styles.box}>
-      <h1 className={styles.title}>Phonebook</h1>
-      <ContactForm />
+    <div>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
 
-      <h2 className={styles.titleContact}>Contacts</h2>
-      <Filter/>
-      <ContactList/>
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            }
+          />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
