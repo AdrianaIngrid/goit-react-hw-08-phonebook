@@ -1,0 +1,14 @@
+.registerPage {
+background-color: rgb(255, 174, 0);
+  background-image: url('../../../../assets/book-159880_1920.png');
+  height: 100vh;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+h4 {
+    
+    margin: 0;
+   padding: 50px 10px;
+    text-align: center;
+}

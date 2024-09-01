@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Redux/Auth/operations";
+import css from './LoginForm.module.css';
 
 
 function LoginForm() {
@@ -17,21 +18,26 @@ const handlesubmit = event => {
   );
 };
     return (
-      <div>
-        <form action="" autoComplete="off" onSubmit={handlesubmit}>
+      <div className={css.loginform}>
+        <form
+          action=""
+          autoComplete="off"
+          onSubmit={handlesubmit}
+          className={css.glassLoginForm}
+        >
           <label>
-                    Email
-                    <br />
+            Email
+            <br />
             <input type="email" name="email" />
-                </label>
-                <br></br>
+          </label>
+          <br></br>
           <label>
-                    Password
-                    <br />
+            Password
+            <br />
             <input type="password" name="password" />
-                </label>
-                <br />
-          <button type="submit">Log In</button>
+          </label>
+          <br />
+          <button type="submit" className={css.buttonLogin}>Log In</button>
         </form>
       </div>
     );

@@ -13,7 +13,7 @@ function ContactList() {
   const handleDeleteContact = id => {
     dispatch(deleteContact(id));
   };
-  // const contacts = useSelector(getContacts);
+
 
   // Aici salvam contactele cand se face update la ele
   useEffect(() => {
